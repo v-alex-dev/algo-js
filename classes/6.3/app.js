@@ -1,9 +1,9 @@
 class Rectangle {
-  constructor(topLeftXPos,topLeftYPos, width, lenght){
+  constructor(topLeftXPos,topLeftYPos, width, length){
     this.topLeftXPos = topLeftXPos,
     this.topLeftYPos = topLeftYPos,
     this.width = width,
-    this.lenght = lenght
+    this.length = length
   }
 
 
@@ -11,8 +11,8 @@ class Rectangle {
     if(  
       this.topLeftXPos < otherRectangle.topLeftXPos + otherRectangle.width &&
       this.topLeftXPos+ this.width > otherRectangle.topLeftXPos &&
-      this.topLeftYPos < otherRectangle.topLeftYPos + otherRectangle.height &&
-      this.height + this.topLeftYPos > otherRectangle.topLeftYPos){
+      this.topLeftYPos < otherRectangle.topLeftYPos + otherRectangle.length &&
+      this.length + this.topLeftYPos > otherRectangle.topLeftYPos){
         return true;
       }
     return false
@@ -27,25 +27,20 @@ let arr = []
 let stop = 0;
 let count = 0;
 do {
-  let topLeftXPos = rand(75);
-  let topLeftYPos = rand(75);
-  let width = rand(40);
-  let lenght = rand(50);
+  let topLeftXPos = rand(100);
+  let topLeftYPos = rand(100);
+  let width = rand(10);
+  let length = rand(15);
 
-  let rect = new Rectangle(topLeftXPos, topLeftYPos, width, lenght)
+  let rect = new Rectangle(topLeftXPos, topLeftYPos, width, length)
   arr.push(rect);
-} while (stop != 150);
-
+  stop++
+} while (stop < 750);
+console.log(arr);
 for (let i = 0; i < arr.length; i++) {
-  let compar = arr[i];
-  for (let j = arr.length; j < 0; j--) {
-    if(j === i){
-      if (compar.collides(arr[--j])) {
-        count++
-      }
-    }
-    if (compar.collides(arr[j])) {
-      count++
+  for (let j = i + 1; j < arr.length; j++) {
+    if (arr[i].collides(arr[j])) {
+      count++;
     }
   }
 }
