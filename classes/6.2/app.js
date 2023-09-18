@@ -11,8 +11,8 @@ class Rectangle {
     if(  
       this.topLeftXPos < otherRectangle.topLeftXPos + otherRectangle.width &&
       this.topLeftXPos+ this.width > otherRectangle.topLeftXPos &&
-      this.topLeftYPos < otherRectangle.topLeftYPos + otherRectangle.height &&
-      this.height + this.topLeftYPos > otherRectangle.topLeftYPos){
+      this.topLeftYPos < otherRectangle.topLeftYPos + otherRectangle.lenght &&
+      this.lenght + this.topLeftYPos > otherRectangle.topLeftYPos){
         return true;
       }
     return false
