@@ -1,4 +1,5 @@
-let age = Number;
+export let bastien = 8;
+let age = 5;
 age = prompt('how old are you?');
 parseInt(age);
 
